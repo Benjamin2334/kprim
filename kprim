@@ -1,0 +1,37 @@
+#include <fstream>
+
+using namespace std;
+ifstream fin("kprim.in");
+ofstream fout("kprim.out");
+int long long a, k=2,r;
+bool prim(int n){
+    int ok=0;
+    if(n<2){
+        return false;
+    }
+    if(n==2){
+        return true;
+    }
+    for(int i=2;i*i<=n;i++){
+        if(n%i==0){
+            return false;
+            ok=1;
+        }
+    }
+    if(ok==0){
+        return true;
+    }
+}
+int main()
+{
+ fin>>a;
+ while(a+1){
+     if(prim(k)==true){
+         a--;
+         r=k;
+     }
+     k++;
+ }
+fout<<r*r;
+    return 0;
+}
